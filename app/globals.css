@@ -1,0 +1,157 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800;900&family=Inter:wght@400;500;600;700&display=swap');
+
+:root {
+  --ink-950: #050607;
+  --ink-900: #0B0E10;
+  --ink-800: #12161A;
+  --ink-700: #1C272C;
+  --cyan-600: #0891A6;
+  --cyan-500: #00B8CC;
+  --cyan-400: #00EEFB;
+  --cyan-300: #6FF6FF;
+  --cyan-200: #C7FBFF;
+}
+
+/* ── Buttons ── */
+@layer components {
+  .btn-dark {
+    @apply inline-flex items-center justify-center px-7 py-3.5 text-white font-semibold rounded-none transition-all duration-200 text-sm tracking-widest uppercase border border-white/20;
+    background-color: transparent;
+  }
+  .btn-dark:hover {
+    background-color: white;
+    color: var(--ink-950);
+    border-color: white;
+  }
+
+  .btn-solid {
+    @apply inline-flex items-center justify-center px-7 py-3.5 font-semibold rounded-none transition-all duration-200 text-sm tracking-widest uppercase;
+    background-color: var(--cyan-500);
+    color: var(--ink-950);
+    border: 1px solid var(--cyan-500);
+  }
+  .btn-solid:hover {
+    background-color: var(--cyan-400);
+    border-color: var(--cyan-400);
+  }
+
+  .btn-outline-dark {
+    @apply inline-flex items-center justify-center px-7 py-3.5 font-semibold rounded-none transition-all duration-200 text-sm tracking-widest uppercase;
+    border: 1px solid var(--ink-800);
+    color: var(--ink-800);
+    background: transparent;
+  }
+  .btn-outline-dark:hover {
+    background-color: var(--ink-800);
+    color: white;
+  }
+
+  .btn-light {
+    @apply inline-flex items-center justify-center px-7 py-3.5 font-semibold rounded-none transition-all duration-200 text-sm tracking-widest uppercase;
+    background: white;
+    color: var(--ink-950);
+    border: 1px solid white;
+  }
+  .btn-light:hover {
+    background: transparent;
+    color: white;
+  }
+
+  /* ── Section label ── */
+  .eyebrow {
+    @apply text-xs font-bold uppercase tracking-[0.25em] text-gray-400;
+  }
+  .eyebrow-dark {
+    @apply text-xs font-bold uppercase tracking-[0.25em];
+    color: var(--cyan-600);
+  }
+
+  /* ── Display heading ── */
+  .display {
+    @apply font-black uppercase leading-none tracking-tight;
+    font-family: 'Barlow Condensed', system-ui, sans-serif;
+  }
+
+  /* ── Check item ── */
+  .check-item {
+    @apply flex items-start gap-3;
+  }
+  .check-dot {
+    @apply flex-shrink-0 w-1.5 h-1.5 rounded-full mt-2;
+    background-color: var(--cyan-400);
+  }
+
+  /* ── Divider ── */
+  .h-rule {
+    @apply border-t border-white/10;
+  }
+  .h-rule-dark {
+    @apply border-t border-black/10;
+  }
+}
+
+/* ── Hero animations ── */
+@keyframes heroReveal {
+  from { transform: translateY(110%); }
+  to   { transform: translateY(0%); }
+}
+@keyframes fadein {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.hero-clip {
+  overflow: hidden;
+  display: block;
+}
+.hero-line {
+  display: block;
+  animation: heroReveal 1.1s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+.hero-fade {
+  animation: fadein 0.9s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+/* ── Scroll reveal ── */
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.75s ease, transform 0.75s ease;
+}
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ── Marquee ── */
+@keyframes marqueeScroll {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+.marquee-track {
+  animation: marqueeScroll 28s linear infinite;
+  white-space: nowrap;
+  display: inline-flex;
+}
+.marquee-track:hover {
+  animation-play-state: paused;
+}
+
+/* ── Image placeholder ── */
+.img-placeholder {
+  background-color: var(--ink-800);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: var(--cyan-600);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  gap: 12px;
+}
