@@ -10,6 +10,7 @@ const links = {
     { label: "About", href: "/about" },
     { label: "Contact", href: "/contact" },
     { label: "Start a Project", href: "/contact" },
+    { label: "Privacy Policy", href: "/privacy-policy" },
   ],
 };
 
